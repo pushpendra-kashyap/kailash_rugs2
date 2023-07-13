@@ -1,0 +1,431 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        max-width: 1080px;
+        margin: 0px auto;
+      }
+      header {
+        background-color: #86a391;
+        backdrop-filter: blur(8px);
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        opacity: 0.75;
+        /* border-bottom: 2px solid rgb(212, 188, 188); */
+      }
+
+      header nav {
+        max-width: 1440px;
+        margin: 0px auto;
+        padding: 0 5rem;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      #logo {
+        height: 70px;
+        object-fit: contain;
+      }
+
+      .navlinks {
+        display: flex;
+        gap: 1.25rem;
+        list-style-type: none;
+        overflow: hidden;
+        overflow-x: auto;
+      }
+
+      .navlinks li {
+        font-size: small;
+        font-weight: 700;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .navlinks li:hover {
+        color: #4a623e;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scroll {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      @media screen and (max-width: 480px) {
+        header nav {
+          flex-direction: column;
+          justify-content: center;
+          height: auto;
+          gap: 1rem;
+        }
+        #logo {
+          padding-top: 12px;
+        }
+        .navlinks {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          width: 100%;
+        }
+        .navlinks li {
+          font-size: x-small;
+        }
+        .navlinks li:hover {
+          color: red;
+        }
+      }
+
+      .landing-sec {
+        padding: 1.25rem;
+        background-color: #cbdbd1;
+      }
+      .image {
+        width: 100%;
+        object-fit: cover;
+        /* border-radius: 150px 0px 150px 0px;/ */
+        border-radius: 5px;
+        opacity: 0.75;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      @media screen and (max-width: 480px) {
+        div.image {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .card-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 6rem;
+        padding: 5rem;
+      }
+      .card {
+        height: 300px;
+        min-width: 300px;
+        background-color: white;
+        border-radius: 20px;
+        padding-top: 20px;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      .card:hover {
+        opacity: 0.75;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      @media screen and (max-width: 840px) {
+        .card-container {
+          grid-template-columns: auto;
+          gap: 2rem;
+          padding: 2rem;
+        }
+      }
+      .tittle {
+        text-align: center;
+        padding-top: 5rem;
+        font-size: 40px;
+        color: white;
+      }
+      @media screen and (max-width: 840px) {
+        .tittle {
+          font-size: medium;
+        }
+      }
+
+      .btn1 {
+        text-decoration: none;
+        color: #befffa;
+        background-color: #bd732d;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 #adeee9, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      .btn1:hover {
+        background-color: #b8fff9;
+        color: #bd732d;
+        box-shadow: 0 4px 8px 0 rgb(72, 63, 63),
+          0 6px 10px 0 rgba(0, 0, 0, 0.19);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      @media screen and (max-width: 480px) {
+        .footer {
+          flex-direction: column;
+          justify-content: center;
+          height: auto;
+          gap: 1rem;
+        }
+      }
+      .box {
+        width: 33.3%;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+      .box2 {
+        width: 33.3%;
+      }
+      .box3 {
+        height: 200px;
+        width: 33.3%;
+        padding-top: 3px;
+      }
+      @media screen and (max-width: 480px) {
+        .box {
+          height: 100px;
+          width: auto;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .box2 {
+          font-size: small;
+          white-space: nowrap;
+          margin-left: 25%;
+        }
+      }
+      @media screen and (max-width: 770px) {
+        .box2 {
+          font-size: small;
+          padding-top: 28px;
+          padding-left: 1%;
+          white-space: nowrap;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .box3 {
+          font-size: larger;
+          margin-left: 30%;
+        }
+      }
+      @media screen and (max-width: 770px) {
+        .box3 {
+          font-size: small;
+          padding-left: 1%;
+          white-space: nowrap;
+          align-items: center;
+          padding-top: 28px;
+        }
+      }
+      .icon {
+        font-size: 40;
+        margin-left: 10%;
+      }
+      @media screen and (max-width: 480px) {
+        .icon {
+          font-size: xx-large;
+          margin-left: 10px;
+        }
+      }
+      @media screen and (max-width: 770px) {
+        .icon {
+          font-size: 30px;
+          margin-left: 15px;
+          padding-top: 10px;
+        }
+      }
+      .footer1 {
+        display: flex;
+        justify-content: center;
+        background-color: #86a391;
+        height: 100px;
+        align-items: center;
+        white-space: nowrap;
+        opacity: 0.9;
+      }
+      @media screen and (max-width: 480px) {
+        .footer1 {
+          font-size: 10px;
+          white-space: nowrap;
+        }
+      }
+      @media screen and (max-width: 770px) {
+        .footer1 {
+          font-size: 10px;
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <a href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx">
+            <img src="./image/logo.png" id="logo" />
+          </a>
+        </div>
+
+        <ul class="navlinks no-scroll">
+          <li>
+            <a>Flat Weave</a>
+          </li>
+          <li>
+            <a>Hand Knotted</a>
+          </li>
+          <li>
+            <a>Hand Tufted</a>
+          </li>
+          <li>
+            <a>Handloom</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div>
+        <div class="landing-sec">
+          <img class="image" src="./image/hero2.jpg" />
+
+          <div style="text-align: center; padding-top: 1.5em">
+            <a
+              href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx"
+              class="btn1"
+              >Visit Now</a
+            >
+          </div>
+        </div>
+      </div>
+      <div style="background-color: #86a391">
+        <h3 class="tittle">
+          We design & deliver carpet,
+          <br />
+          luxury carpet and innovative workplace i​nteriors
+        </h3>
+        <div class="card-container">
+          <a
+            href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx"
+            style="text-decoration: none; color: black"
+          >
+            <div class="card">
+              <div style="display: flex; justify-content: center">
+                <img src="./image/logo.png" style="height: 60px" />
+              </div>
+              <p style="padding: 40px; padding-top: 40px">
+                For unique or complicated custom designs, wall-to-wall is still
+                likely to be your best option, but with the emerging
+                technologies, carpet tiles no longer necessarily mean a boxy
+                look or a clean solid colour.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx"
+            style="text-decoration: none; color: black"
+          >
+            <div class="card">
+              <div style="display: flex; justify-content: center">
+                <img src="./image/logo.png" style="height: 60px" />
+              </div>
+              <p style="padding: 40px; padding-top: 40px">
+                For unique or complicated custom designs, wall-to-wall is still
+                likely to be your best option, but with the emerging
+                technologies, carpet tiles no longer necessarily mean a boxy
+                look or a clean solid colour.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx"
+            style="text-decoration: none; color: black"
+          >
+            <div class="card">
+              <div style="display: flex; justify-content: center">
+                <img src="./image/logo.png" style="height: 60px" />
+              </div>
+              <p style="padding: 40px; padding-top: 40px">
+                For unique or complicated custom designs, wall-to-wall is still
+                likely to be your best option, but with the emerging
+                technologies, carpet tiles no longer necessarily mean a boxy
+                look or a clean solid colour.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://kailashrug.ezeecrm.io/Catalogue/#.tbsx"
+            style="text-decoration: none; color: black"
+          >
+            <div class="card">
+              <div style="display: flex; justify-content: center">
+                <img src="./image/logo.png" style="height: 60px" />
+              </div>
+              <p style="padding: 40px; padding-top: 40px">
+                For unique or complicated custom designs, wall-to-wall is still
+                likely to be your best option, but with the emerging
+                technologies, carpet tiles no longer necessarily mean a boxy
+                look or a clean solid colour.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        style="background-color: #86a391; display: flex; opacity: 0.9"
+        class="footer"
+      >
+        <div class="box">
+          <img src="./image/logo.png" style="height: 70px" />
+        </div>
+        <div class="box2">
+          <h2 style="padding-left: 20%; padding-top: 10%">CONTACT US</h2>
+          <div style="padding-top: 3%; padding-left: 20%">
+            <a href="www.kailashrug.in">www.kailashrug.in</a>
+            <div style="padding-top: 10px">
+              <a href="info@kailashrug.in">info@kailashrug.in</a>
+            </div>
+            <div style="padding-top: 5px">
+              <a href="tel:+91 5414 243401/243402">+91 5414 243401/243402</a>
+            </div>
+          </div>
+        </div>
+        <div class="box3">
+          <h2 style="text-align: center; padding-top: 10%">FOLLOW US</h2>
+          <div style="padding-top: 1rem; text-align: center" class="icon">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer1">
+        <h2>Kailash Rug Industries© 2023 | Uttar Pradesh,India</h2>
+      </div>
+    </main>
+  </body>
+</html>
